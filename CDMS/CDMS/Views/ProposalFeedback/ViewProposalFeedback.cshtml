@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CDMS.Models.ProposalFeedback>
+
+@{
+    ViewBag.Title = "View Proposal Feedback";
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+}
+
+<!DOCTYPE html>
+<br /><br /><br /><br /><br />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>View</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProposalNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedByName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedToName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProposalNo)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.CreatedByName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.AssignedToName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Details", "Details", new { id = item.BranchId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BranchId })*@
+            </td>
+        </tr>
+        }
+
+    </table>
+</body>
+</html>
